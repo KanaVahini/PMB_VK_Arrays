@@ -7,7 +7,7 @@
     { key: "revise", label: "Revise" }
   ];
 
-  const USERS = (typeof REVISERS !== "undefined" && REVISERS.length === 2) ? REVISERS : ["Pruthviraj", "Vahini"];
+  const USERS = (typeof REVISERS !== "undefined" && REVISERS.length === 2) ? REVISERS : ["Prerana", "Vahini"];
   const USER_GLOW = { [USERS[0]]: "#6d5bff", [USERS[1]]: "#ff5f9e" };
   let currentUser = null;
   let currentTopicId = null;
@@ -622,7 +622,7 @@
     const banner = document.getElementById("sync-banner");
     const dot = document.getElementById("sync-dot");
     if (isFirebase) {
-      banner.textContent = "Synced live — progress is shared between Pruthviraj and Vahini.";
+      banner.textContent = "Synced live — progress is shared between Prerana and Vahini.";
       banner.classList.add("show", "ok");
       if (dot) dot.classList.add("ok");
     } else {
