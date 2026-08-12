@@ -15,7 +15,7 @@
 
   const DEFAULT_TOPIC = "arrays";
 
-  // progressByUser[user][topicId] = { [problemId]: {status, notes} }
+  // progressByUser[user][topicId] = { [problemId]: {status} }
   const progressByUser = {};
   USERS.forEach((u) => { progressByUser[u] = {}; });
 
@@ -37,11 +37,15 @@
   const ICONS = {
     home: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10.5V20h5v-6h2v6h5v-9.5"/></svg>`,
     // Arrays
+    "array-basics": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V14M9 20V6M14 20V11M19 20V16"/><circle cx="9" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>`,
+    "in-place-manipulation": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.7V12a9 9 0 0 1 9-9c2.4 0 4.5.9 6.1 2.4M7 21.9l-4-4 4-4"/><path d="M21 11.3V12a9 9 0 0 1-9 9c-2.4 0-4.5-.9-6.1-2.4"/></svg>`,
     "two-pointers": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h6M21 12h-6"/><path d="M9 8l-6 4 6 4M15 8l6 4-6 4"/></svg>`,
     "sliding-window": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="1.5"/><rect x="8" y="7" width="6" height="10" fill="currentColor" opacity="0.3" stroke="none"/></svg>`,
     "prefix-sum": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h13l-6.5 8L18 20H5"/></svg>`,
     kadane: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16l4-8 4 5 3-9 4 7 3-4"/></svg>`,
     "binary-search": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg>`,
+    "binary-search-2d": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="2" width="13" height="13" rx="1"/><path d="M2 8.5h13M8.5 2v13"/><circle cx="17" cy="17" r="4" stroke-linejoin="round"/><path d="M20 20l2.3 2.3" stroke-linecap="round"/></svg>`,
+    "binary-search-answer": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg>`,
     hashing: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 4 4.5 20M18 4l-1.5 16M3 9h18M2.5 15h18"/></svg>`,
     "cyclic-sort": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5"/><path d="M18 3v4h-4"/><path d="M20 12a8 8 0 0 1-14 5"/><path d="M6 21v-4h4"/></svg>`,
     "merge-intervals": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="11" height="5" rx="1.5"/><rect x="10" y="13" width="11" height="5" rx="1.5"/></svg>`,
@@ -50,6 +54,10 @@
     greedy: `<svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>`,
     "sorting-tricks": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M7 4 4 7M7 4l3 3"/><path d="M17 20V4M17 20l-3-3M17 20l3-3"/></svg>`,
     "bit-manipulation": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="9" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>`,
+    "bit-basics": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1" fill="currentColor"/><rect x="16" y="9" width="6" height="6" rx="1"/></svg>`,
+    "bit-interview": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="9" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1" fill="currentColor"/></svg>`,
+    "advanced-maths": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M5 12h14"/><circle cx="12" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>`,
+    "construction-rearrangement": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1" fill="currentColor" opacity="0.3"/></svg>`,
     // Linked List
     "ll-basics": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="4" cy="12" r="2.3"/><path d="M6.3 12h4.4"/><circle cx="12" cy="12" r="2.3"/><path d="M14.3 12h4.4"/><circle cx="20" cy="12" r="2.3" fill="currentColor" stroke="none"/></svg>`,
     "fast-slow-pointers": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="4" r="1.7" fill="currentColor" stroke="none"/><circle cx="18.9" cy="15" r="1.7" fill="currentColor" stroke="none"/></svg>`,
@@ -58,7 +66,39 @@
     "dummy-node": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="9" width="5" height="5" rx="1" stroke-dasharray="2 2"/><path d="M8 11.5h4M16 11.5h4"/><circle cx="12" cy="11.5" r="2.3"/></svg>`,
     "merge-sort-ll": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6l8 6M20 6l-8 6M12 12v6"/><circle cx="4" cy="6" r="1.6" fill="currentColor" stroke="none"/><circle cx="20" cy="6" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="18" r="1.6" fill="currentColor" stroke="none"/></svg>`,
     rewiring: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="8" width="8" height="8" rx="4"/><rect x="13" y="8" width="8" height="8" rx="4"/></svg>`,
-    "doubly-linked-list": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2" fill="currentColor" stroke="none"/><path d="M6.2 10.3h3.6M14.2 10.3h3.6"/><path d="M9.8 13.7H6.2M17.8 13.7h-3.6"/></svg>`
+    "doubly-linked-list": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2" fill="currentColor" stroke="none"/><path d="M6.2 10.3h3.6M14.2 10.3h3.6"/><path d="M9.8 13.7H6.2M17.8 13.7h-3.6"/></svg>`,
+    // Binary Trees
+    "tree-traversals": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="5" r="2.2"/><circle cx="6" cy="14" r="2.2"/><circle cx="18" cy="14" r="2.2"/><path d="M12 7.2L6 11.8M12 7.2l6 4.6"/></svg>`,
+    "tree-properties": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="5" r="2"/><circle cx="5" cy="12" r="2"/><circle cx="13" cy="12" r="2"/><path d="M9 7L5 10M9 7l4 3"/><path d="M19 4v16" stroke-dasharray="2 2"/></svg>`,
+    "tree-construction": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2" stroke-dasharray="1.5 1.5"/><circle cx="6" cy="14" r="2"/><circle cx="18" cy="14" r="2"/><path d="M12 7.2L6 11.8M12 7.2l6 4.6"/></svg>`,
+    "morris-traversal": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="5" r="2"/><circle cx="5" cy="13" r="2"/><circle cx="14" cy="13" r="2"/><path d="M9 7L5 11M9 7l5 4"/><path d="M5 11a6 6 0 0 1 4-8" stroke-dasharray="2 2"/></svg>`,
+    "tree-views": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-5 10-5 10 5 10 5-3 5-10 5-10-5-10-5z"/><circle cx="12" cy="12" r="2.5"/></svg>`,
+    "tree-paths-ancestors": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="13" r="2" opacity="0.35"/><circle cx="17" cy="13" r="2"/><circle cx="20" cy="20" r="2" fill="currentColor" stroke="none"/><path d="M12 7l5 6M17 15l3 5"/><path d="M12 7L6 11" opacity="0.35"/></svg>`,
+    // Dynamic Programming
+    "dp-fundamentals": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg>`,
+    "dp-1d": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h4v-4h4v-4h4v-4h4V4"/></svg>`,
+    "dp-grids": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" opacity="0.35"/><path d="M5 5l6 6 2-2 6 6" stroke-linecap="round"/></svg>`,
+    "dp-01-knapsack": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l1 12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>`,
+    "dp-unbounded-knapsack": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h12l1 10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M8.7 15.5c0-1 .8-1.8 1.7-1.8s1.6 1.8 1.6 1.8.7 1.8 1.6 1.8 1.7-.8 1.7-1.8-.8-1.8-1.7-1.8-1.6 1.8-1.6 1.8-.7 1.8-1.6 1.8-1.7-.8-1.7-1.8z"/></svg>`,
+    "dp-strings": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h13"/></svg>`,
+    "dp-stocks": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 5-8 4 5"/><path d="M17 6h4v4"/></svg>`,
+    "dp-lis": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/><circle cx="9" cy="13" r="1.5" fill="currentColor" stroke="none"/><circle cx="14" cy="15" r="1.5" fill="currentColor" stroke="none" opacity="0.35"/><circle cx="19" cy="6" r="1.5" fill="currentColor" stroke="none"/><path d="M4 18L9 13L19 6"/></svg>`,
+    "dp-partition-mcm": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16M4 12h6M12 4v16M12 12h6M20 4v16"/></svg>`,
+    "dp-squares": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><rect x="8" y="8" width="8" height="8" rx="1" fill="currentColor" opacity="0.3"/></svg>`,
+    // Stacks & Queues
+    "stack-fundamentals": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="4" width="14" height="4" rx="1"/><rect x="5" y="10" width="14" height="4" rx="1"/><rect x="5" y="16" width="14" height="4" rx="1"/></svg>`,
+    "bracket-matching": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4c-2 0-3 1-3 3v3c0 1-1 2-2 2 1 0 2 1 2 2v3c0 2 1 3 3 3"/><path d="M15 4c2 0 3 1 3 3v3c0 1 1 2 2 2-1 0-2 1-2 2v3c0 2-1 3-3 3"/></svg>`,
+    "area-water": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M9 20V6M14 20V13M19 20V8"/><path d="M2 16q2-1.5 4 0t4 0 4 0 4 0" opacity="0.6"/></svg>`,
+    "design-structures": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/><circle cx="17.5" cy="15.5" r="1.3" fill="currentColor" stroke="none"/></svg>`,
+    // Graphs
+    "graph-basics": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7 6.9L17 6.9M6.3 7.9L11 16.2M17.7 7.9L13 16.2"/></svg>`,
+    "graph-grid-traversal": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18" opacity="0.35"/><rect x="9" y="9" width="6" height="6" fill="currentColor" opacity="0.35" stroke="none"/></svg>`,
+    "graph-cycles-bipartite": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.3"/><circle cx="17" cy="7" r="2.3" fill="currentColor"/><circle cx="7" cy="17" r="2.3" fill="currentColor"/><circle cx="17" cy="17" r="2.3"/><path d="M9 8l6 0M8 9l0 6M16 9l0 6M9 16l6 0"/></svg>`,
+    "graph-topo-sort": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><path d="M6.3 12h3.4M14.3 12h3.4"/><path d="M9 10.5l1.3 1.5-1.3 1.5M17 10.5l1.3 1.5-1.3 1.5"/></svg>`,
+    "graph-shortest-path": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="18" r="1.8" fill="currentColor" stroke="none"/><circle cx="20" cy="6" r="1.8" fill="currentColor" stroke="none"/><path d="M4 18C7 12 10 15 13 11S17 6 20 6" opacity="0.9"/><path d="M4 18 20 6" stroke-dasharray="1.5 2.5" opacity="0.35"/></svg>`,
+    "implicit-graph-bfs": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="6" height="6" rx="1" stroke-dasharray="2 2"/><rect x="16" y="9" width="6" height="6" rx="1" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="2.3"/><path d="M8.3 12h1.4M14.3 12h1.4"/></svg>`,
+    "graph-mst-dsu": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="4" r="2"/><circle cx="5" cy="14" r="2"/><circle cx="19" cy="14" r="2"/><circle cx="5" cy="21" r="1.6" fill="currentColor" stroke="none"/><path d="M11 5.6L6 12.6M13 5.6l5 7M5 16.2V19"/></svg>`,
+    "graph-scc-bridges": `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="7" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="12" cy="20" r="2"/><path d="M6.6 8.2L10.4 10.8M17.4 8.2L13.6 10.8M12 14v4"/><path d="M2 7h1.5M20.5 7H22" stroke-width="2.4"/></svg>`
   };
 
   function hexToRgba(hex, alpha) {
@@ -119,7 +159,24 @@
     let localListeners = [];
     function onLocalChange(fn) { localListeners.push(fn); }
 
-    return { init, subscribe, setEntry, onLocalChange, isFirebase: () => useFirebase };
+    // Presence: marks `user` online while their tab is connected, and clears
+    // itself automatically the moment they disconnect/close the tab.
+    function initPresence(user) {
+      if (!useFirebase) return;
+      const presenceRef = db.ref(`presence/${user}`);
+      db.ref(".info/connected").on("value", (snap) => {
+        if (snap.val() === true) {
+          presenceRef.onDisconnect().remove();
+          presenceRef.set(true);
+        }
+      });
+    }
+    function subscribePresence(user, cb) {
+      if (!useFirebase) { cb(false); return; }
+      db.ref(`presence/${user}`).on("value", (snap) => cb(snap.val() === true));
+    }
+
+    return { init, subscribe, setEntry, onLocalChange, initPresence, subscribePresence, isFirebase: () => useFirebase };
   })();
 
   function slug(str) { return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
@@ -359,6 +416,11 @@
         <h1 class="dash-greeting">Welcome back, ${currentUser}</h1>
         <p class="dash-sub">${currentTopicMeta().tagline}</p>
 
+        <div class="notes-removed-alert" style="margin:14px 0 20px;padding:14px 18px;border-radius:10px;background:rgba(220,38,38,0.10);border:1px solid rgba(220,38,38,0.35);color:#dc2626;text-align:center;line-height:1.6;box-shadow:0 4px 14px rgba(220,38,38,0.16);font-weight:500;">
+          <strong>Notes are no longer available in this section.</strong><br>
+          <em>Your previous notes have been saved as screenshots.</em>
+        </div>
+
         <div class="progress-overview">${totalsHtml}</div>
 
         <div class="revise-queue" id="revise-queue">
@@ -451,13 +513,6 @@
       return `<div class="reviser-block" data-user="${user}"><span class="reviser-name">${user}</span><span class="status-dot" data-user-dot="${user}"></span><span class="status-readonly-label" data-user-label="${user}">Not started</span></div>`;
     }).join("");
 
-    const notesGrid = USERS.map((user) => `
-      <div class="notes-block">
-        <div class="mini-list-label">${user}${user === currentUser ? " (editable)" : ""}</div>
-        <textarea class="notes" data-user="${user}" ${user === currentUser ? "" : "disabled"}
-          placeholder="${user === currentUser ? "Jot a reminder for next time…" : "No notes yet."}"></textarea>
-      </div>`).join("");
-
     card.innerHTML = `
       <div class="problem-top">
         <h3><a href="${problem.link}" target="_blank" rel="noopener">${problem.name}</a></h3>
@@ -473,7 +528,6 @@
       ${variations}
       ${gotchas}
       <div class="reviser-row">${reviserRow}</div>
-      <div class="notes-grid">${notesGrid}</div>
     `;
 
     card.querySelectorAll(".status-btn").forEach((btn) => {
@@ -485,11 +539,6 @@
         if (newStatus === "solved") celebrate(btn);
       });
     });
-
-    const myTextarea = card.querySelector(`textarea.notes[data-user="${currentUser}"]`);
-    if (myTextarea) {
-      myTextarea.addEventListener("blur", () => Store.setEntry(currentUser, topicIdAtRender, problemId, { notes: myTextarea.value }));
-    }
 
     return card;
   }
@@ -551,8 +600,6 @@
       const entry = progressByUser[user][topicId][problemId] || {};
       if (user === currentUser) {
         card.querySelectorAll(".status-btn").forEach((btn) => { btn.dataset.active = String(btn.dataset.status === entry.status); });
-        const ta = card.querySelector(`textarea.notes[data-user="${user}"]`);
-        if (ta && document.activeElement !== ta) ta.value = entry.notes || "";
       } else {
         const dot = card.querySelector(`[data-user-dot="${user}"]`);
         const label = card.querySelector(`[data-user-label="${user}"]`);
@@ -561,8 +608,6 @@
           const sd = STATUSES.find((s) => s.key === entry.status);
           label.textContent = sd ? sd.label : "Not started";
         }
-        const ta = card.querySelector(`textarea.notes[data-user="${user}"]`);
-        if (ta) ta.value = entry.notes || "";
       }
     });
     updateSidebarProgress();
@@ -694,6 +739,13 @@
       topicIds().forEach((t) => {
         Store.subscribe(u, t, (uu, tt, data) => applyProgressToPatternCards(uu, tt, data));
       });
+    });
+
+    Store.initPresence(currentUser);
+    const otherUser = USERS.find((u) => u !== currentUser);
+    Store.subscribePresence(otherUser, (isOnline) => {
+      const dot = document.getElementById("presence-dot");
+      if (dot) dot.style.background = isOnline ? "#7c6bff" : "#4a4a58";
     });
 
     window.addEventListener("hashchange", handleRoute);
